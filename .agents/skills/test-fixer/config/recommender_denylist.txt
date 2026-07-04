@@ -1,0 +1,21 @@
+# Secrets and env
+**/.env*
+**/*secret*
+**/*secrets*
+**/*key*
+**/*token*
+
+# Auth & security sensitive
+**/*auth*
+**/*oauth*
+**/*jwt*
+
+# Infra / generated / noisy
+**/.git/**
+**/.github/**
+**/node_modules/**
+**/migrations/**
+**/__pycache__/**
+**/.pytest_cache/**
+**/venv/**
+**/.venv/**
