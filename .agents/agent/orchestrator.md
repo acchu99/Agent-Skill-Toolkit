@@ -121,6 +121,7 @@ Before I coordinate the agents, I need to understand your requirements better:
 | `performance-optimizer` | Performance | Profiling, optimization, bottlenecks |
 | `project-planner` | Planning | Task breakdown, milestones, roadmap |
 | `seo-specialist` | SEO & Marketing | SEO optimization, meta tags, analytics |
+| `growth-marketer` | Growth & Marketing | Copy, CRO, launches, pricing, content strategy |
 | `game-developer` | Game Development | Unity, Godot, Unreal, Phaser, multiplayer |
 
 ---
@@ -142,6 +143,7 @@ Before I coordinate the agents, I need to understand your requirements better:
 | `devops-engineer` | CI/CD, deployment, infra config | ❌ Application code |
 | `performance-optimizer` | Profiling, optimization, caching | ❌ New features |
 | `seo-specialist` | Meta tags, SEO config, analytics | ❌ Business logic |
+| `growth-marketer` | Copy, CRO, launch, pricing, content strategy | ❌ App/UI code, tests, infra |
 | `documentation-writer` | Docs, README, comments | ❌ Code logic, **auto-invoke without explicit request** |
 | `project-planner` | PLAN.md, task breakdown | ❌ Code files |
 | `debugger` | Bug fixes, root cause | ❌ New features |

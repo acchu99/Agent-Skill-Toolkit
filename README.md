@@ -20,10 +20,10 @@ The repository is intentionally simple: the product is the `.agents/` directory.
 
 Current inventory:
 
-- 26 specialist agent files.
-- 101 loadable skill packages with `SKILL.md`.
+- 27 specialist agent files.
+- 109 loadable skill packages with `SKILL.md`.
 - 6 supplemental top-level skill notes.
-- 25 workflow files.
+- 27 workflow files.
 - 6 rule files.
 - 4 helper scripts.
 
@@ -139,6 +139,8 @@ Memory records durable project decisions. It answers the question: "What should 
 | `/deploy` | You need deployment preparation or production rollout guidance. |
 | `/add-skill` | You want to add a reusable instruction module. |
 | `/add-agent` | You want to add a new specialist role. |
+| `/market` | You need marketing/growth work: copy, CRO, launch, or pricing. |
+| `/humanize` | You need to strip AI writing tells from a document. |
 
 See [docs/workflows.md](docs/workflows.md) for details.
 

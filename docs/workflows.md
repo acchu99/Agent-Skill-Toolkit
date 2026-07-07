@@ -64,6 +64,8 @@ Use coordination workflows when a task crosses domains, such as frontend plus ba
 | `/rls-audit` | Audit row-level security or database authorization. |
 | `/sentry-triage` | Triage production errors from Sentry. |
 | `/ui-ux-pro-max` | Apply richer UI and UX design guidance. |
+| `/market` | Run a growth/marketing task: copy, CRO, launch, or pricing. |
+| `/humanize` | Strip AI writing tells from a document. |
 
 ## Adapting Workflows
 

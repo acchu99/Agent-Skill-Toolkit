@@ -1,55 +1,44 @@
 ---
-description: Steps to create a new skill document for agents
+description: Create a new loadable skill package using the kit's actual convention (kebab-case dir + SKILL.md + frontmatter), then wire it into agents and the catalog.
 ---
 
 # Add a Skill
 
-Follow these steps when creating a new skill document that agents can reference.
+Create a new skill the same way the existing skills are built. Load the `add-skill` skill for the full checklist.
 
-## Skill Types
+## Convention (must match existing skills)
 
-- **Domain skills** (`skills/{agent_domain}/`): Specific to one agent domain
-- **Shared skills** (`skills/shared/`): Used across multiple agents
-- **Meta skills** (`.agents/skills/`): For agents maintaining the project itself (not business agents)
+A skill is a **directory** with an uppercase `SKILL.md`:
+
+```text
+.agents/skills/<skill-name>/SKILL.md   # kebab-case dir, SKILL.md entry
+```
+
+Optional siblings: `references/`, `scripts/`, `templates/`, `data/`. Do **not** create new top-level `.agents/skills/<name>.md` notes — use a directory + `SKILL.md`.
 
 ## Steps
 
-1. **Determine skill placement**
-   - If only one agent domain uses it → `skills/{agent_domain}/`
-   - If multiple agents benefit → `skills/shared/`
-   - If it's about project maintenance → `.agents/skills/`
-
-2. **Create the skill file**
-   - Use snake_case naming: `{skill_name}.md`
-   - Example: `skills/shared/pricing_elasticity.md`
-
-3. **Follow the skill document format:**
-   ```markdown
-   # {Skill Name}
-
-   ## When to use this skill
-   - Bullet list of situations where this skill applies
-
-   ## Key concepts
-   - Core knowledge the agent needs
-
-   ## Procedure
-   1. Step-by-step instructions
-   2. With concrete examples
-
-   ## Examples
-   - Real-world examples showing how to apply this skill
-
-   ## Common mistakes
-   - Pitfalls to avoid
-
-   ## Related skills
-   - Links to related skill documents
+1. **Create `SKILL.md`** with frontmatter:
+   ```yaml
+   ---
+   name: <skill-name>
+   description: <one line, keyword-rich — how the skill is discovered>
+   when_to_use: "<triggers and pairings>"
+   allowed-tools: Read, Glob, Grep
+   ---
    ```
 
-4. **Reference the skill from relevant agent specs or prompts**
-   - If the skill should be loaded into agent context, reference it in the agent's system prompt or prompt template
+2. **Write the body** in house style: `# Title` + `>` principle, `## When to Apply`, tables/checklists/✅❌ examples, `## Anti-Patterns`, `## Quick Checklist`, `## Related Skills`.
 
-5. **Validate**
-   - Ensure the skill is findable via its directory location
-   - Check that related skills are cross-linked
+3. **Wire into agents:** add the skill name to the `skills:` frontmatter of each relevant `.agents/agent/<agent>.md`.
+
+4. **Register in the catalog:** update counts + tables in `.agents/ARCHITECTURE.md` and `README.md`; add to `quick-reference.md` if it's a key skill.
+
+5. **Validate:** recount skills, confirm every `Related Skills` name exists, and check any `scripts/` path you cite.
+
+## Usage Examples
+
+```
+/add-skill rate-limiting-patterns
+/add-skill accessible-charts
+```

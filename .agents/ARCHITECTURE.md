@@ -10,10 +10,10 @@ For developer-facing usage documentation, start with [../README.md](../README.md
 
 The toolkit currently contains:
 
-- 26 specialist agent files.
-- 101 loadable skill packages with `SKILL.md`.
+- 27 specialist agent files.
+- 109 loadable skill packages with `SKILL.md`.
 - 6 supplemental top-level skill notes.
-- 25 workflow files.
+- 27 workflow files.
 - 6 workspace rule files.
 - 4 helper scripts.
 
@@ -49,6 +49,7 @@ Agents are specialist personas for distinct engineering domains. Each agent file
 | `explorer-agent` | Codebase discovery and repository mapping. |
 | `frontend-specialist` | Web UI, React/Next.js, frontend architecture, and UX. |
 | `game-developer` | Game logic, mechanics, and game project structure. |
+| `growth-marketer` | Marketing copy, conversion, launches, pricing, and content/SEO strategy. |
 | `maintenance-janitor` | Maintenance, cleanup, consistency, and hygiene. |
 | `mobile-developer` | iOS, Android, React Native, and mobile UX. |
 | `orchestrator` | Multi-agent coordination and synthesis. |
@@ -94,6 +95,9 @@ The kit includes skill coverage for:
 - Infrastructure, Docker, Kubernetes, EKS, deployment, and server management.
 - Architecture, planning, implementation readiness, and gap analysis.
 - Game development across web, mobile, 2D, 3D, multiplayer, PC, and VR/AR.
+- Growth and marketing: copywriting, conversion-rate optimization, launch strategy, and pricing.
+- Data visualization, accessibility (WCAG), and release engineering (commits, changelog, SemVer).
+- Writing quality: humanizing AI-generated prose for docs, PRs, and marketing copy.
 - Documentation, memory, context compression, coordination, and maintenance.
 
 ## Workflows
@@ -113,6 +117,8 @@ Workflows are slash-command style procedures. They can be invoked by name or ref
 | `/doc-chronicle` | Capture architecture or documentation history. |
 | `/e2e-generate` | Generate end-to-end tests. |
 | `/enhance` | Improve existing code or user experience. |
+| `/humanize` | Strip AI writing tells from a document. |
+| `/market` | Run a growth/marketing task (copy, CRO, launch, pricing). |
 | `/orchestrate` | Run multi-agent orchestration. |
 | `/plan` | Create a structured implementation plan. |
 | `/prepare-launch-package` | Create launch handoff material. |
