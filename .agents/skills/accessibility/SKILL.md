@@ -49,7 +49,7 @@ Use `<button>`, `<a href>`, `<nav>`, `<main>`, `<header>`, `<label>`, `<h1>`–`
 
 ## Keyboard & Focus
 
-- **Everything interactive works with keyboard** (Tab/Shift-Tab, Enter/Space, Arrow keys for composite widgets).
+- **Everything interactive works with keyboard** (Tab/Shift-Tab, Enter/Workspace, Arrow keys for composite widgets).
 - **Visible focus indicator** on every focusable element (≥ 3:1 contrast against the background).
 - **Logical tab order** follows visual/reading order; don't use positive `tabindex`.
 - **Manage focus** on route changes, modal open/close (trap focus in modal, restore on close), and dynamic content.

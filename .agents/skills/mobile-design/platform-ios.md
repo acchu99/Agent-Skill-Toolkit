@@ -290,7 +290,7 @@ Button Styles (UIKit/SwiftUI):
 └──────────────────────────────┘
 
 Sizes:
-├── Mini: Tight spaces
+├── Mini: Tight workspaces
 ├── Small: Compact UI
 ├── Medium: Inline actions
 ├── Large: Primary CTAs (44pt minimum height)

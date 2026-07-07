@@ -195,7 +195,7 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 ---
 
-## 11. MyApp Editable Metadata Pattern
+## 11. the application Editable Metadata Pattern
 
 When matching dashboard-style metadata editing:
 

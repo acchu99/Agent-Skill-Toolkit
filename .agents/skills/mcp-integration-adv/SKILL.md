@@ -5,13 +5,13 @@ description: Advanced patterns for MCP tools, shared memory, and UI rendering.
 
 # Advanced MCP Integration Patterns
 
-This skill defines the high-level coordination between MCP tools, the Python Jupyter kernel, and the MyApp frontend.
+This skill defines the high-level coordination between MCP tools, the Python Jupyter kernel, and the application frontend.
 
 ## 1. Memory Boundary (CRITICAL)
 
-MyApp uses two distinct persistence layers. Choosing the wrong one causes `NameError` or data loss.
+the application uses two distinct persistence layers. Choosing the wrong one causes `NameError` or data loss.
 
-| Feature | NATIVE MCP Tool (`save_memory`) | PYTHON Accessor (`myapp_client.memory`) |
+| Feature | NATIVE MCP Tool (`save_memory`) | PYTHON Accessor (`example-app_client.memory`) |
 |---------|---------------------------------|-----------------------------------------|
 | **Source** | JSON from AI context | Result of code execution (DF, Figures) |
 | **Persistence** | Immediate (Supabase) | Session-scoped (RPC Backend) |
@@ -19,10 +19,10 @@ MyApp uses two distinct persistence layers. Choosing the wrong one causes `NameE
 
 ### Rule of Thumb
 - Use `save_memory` for **static data** or **final summaries**.
-- Use `myapp_client.memory['key'] = val` for **live objects** generated in Python.
+- Use `example-app_client.memory['key'] = val` for **live objects** generated in Python.
 
 ## 2. Environment Context
-Every tool call to an MCP server (e.g., `myapp-datasets-mcp`) includes an `env` dictionary.
+Every tool call to an MCP server (e.g., `example-app-datasets-mcp`) includes an `env` dictionary.
 - **Trust:** MCP tools are trusted processes; they use these variables to authenticate against Supabase or other internal APIs.
 - **Lifecycle:** This context is request-scoped and non-persistent on the MCP server side.
 

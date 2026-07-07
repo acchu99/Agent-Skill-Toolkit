@@ -85,7 +85,7 @@ RENDER → Draw the frame (interpolated)
 Abstract input into ACTIONS, not raw keys:
 
 ```
-"jump"  → Space, Gamepad A, Touch tap
+"jump"  → Workspace, Gamepad A, Touch tap
 "move"  → WASD, Left stick, Virtual joystick
 ```
 

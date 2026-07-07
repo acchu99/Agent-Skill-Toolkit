@@ -52,7 +52,7 @@ Reference these guidelines when:
 
 - `image-optimization` - Use WebP, srcset, lazy loading
 - `reduced-motion` - Check prefers-reduced-motion
-- `content-jumping` - Reserve space for async content
+- `content-jumping` - Reserve workspace for async content
 
 ### 4. Layout & Responsive (HIGH)
 

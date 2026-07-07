@@ -49,7 +49,7 @@ What's slow?
 │   └── Layout thrashing → Batch DOM reads/writes
 │
 ├── Visual instability
-│   └── CLS high → Reserve space, explicit dimensions
+│   └── CLS high → Reserve workspace, explicit dimensions
 │
 └── Memory issues
     ├── Leaks → Clean up listeners, refs

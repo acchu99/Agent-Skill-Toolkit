@@ -1,15 +1,15 @@
 ---
 name: k8s-deployment-patterns
-description: Shared EKS infrastructure patterns for validating MyApp Kubernetes clusters, addons, and downstream handoffs.
+description: Shared EKS infrastructure patterns for validating the application Kubernetes clusters, addons, and downstream handoffs.
 ---
 
 # Kubernetes Deployment Patterns For Shared EKS
 
-This skill defines how to reason about Kubernetes-facing changes in `myapp-infra`. This repository owns shared cluster foundations, not application rollouts.
+This skill defines how to reason about Kubernetes-facing changes in `example-app-infra`. This repository owns shared cluster foundations, not application rollouts.
 
 ## Ownership Boundary
 
-`myapp-infra` owns:
+`example-app-infra` owns:
 
 - VPCs, public/private subnets, NAT gateways, routing, and subnet tags.
 - EKS control planes and core addons.
@@ -50,7 +50,7 @@ kubectl get pods -A
 kubectl get pods -n kube-system
 ```
 
-The rendered cluster name is `${environment}-${cluster_name}`. For example, `terraform/envs/prod.tfvars` sets `cluster_name = "myapp-cluster-prod"`, so Terraform renders `prod-myapp-cluster-prod`.
+The rendered cluster name is `${environment}-${cluster_name}`. For example, `terraform/envs/prod.tfvars` sets `cluster_name = "example-app-cluster-prod"`, so Terraform renders `prod-example-app-cluster-prod`.
 
 ## CoreDNS Reachability Pattern
 
@@ -75,9 +75,9 @@ If a DNS SG rule was added manually during an incident, add the matching Terrafo
 
 When changing shared infrastructure, tell downstream owners what changed and what they must re-check:
 
-- `myapp-mcp-server`: public ALB route, namespace rollout, health endpoint, MCP app deployment.
-- `myapp-datasets`: internal RPC service, IRSA/S3 access, namespace rollout, enrichment worker.
-- `myapp-jupyterhub`: JupyterHub gateway, private admin route, Helm release, PVC cleaner, single-user image behavior.
+- `mcp-server`: public ALB route, namespace rollout, health endpoint, MCP app deployment.
+- `example-app-datasets`: internal RPC service, IRSA/S3 access, namespace rollout, enrichment worker.
+- `jupyterhub`: JupyterHub gateway, private admin route, Helm release, PVC cleaner, single-user image behavior.
 
 Handoff should include the environment, workflow run URL, Terraform plan summary, rendered cluster name, subnet outputs, ALB controller status, and any rollback status.
 

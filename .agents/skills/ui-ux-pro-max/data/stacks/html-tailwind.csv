@@ -23,7 +23,7 @@ No,Category,Guideline,Description,Do,Don't,Code Good,Code Bad,Severity,Docs URL
 22,Colors,Semantic colors,Use semantic color naming in config,primary secondary danger success,Generic color names in components,bg-primary,bg-blue-500 everywhere,Medium,
 23,Spacing,Consistent spacing scale,Use Tailwind spacing scale consistently,p-4 m-6 gap-8,Arbitrary pixel values,p-4 (1rem),p-[15px],Low,https://tailwindcss.com/docs/customizing-spacing
 24,Spacing,Negative margins,Use sparingly for overlapping effects,-mt-4 for overlapping elements,Negative margins for layout fixing,-mt-8 for card overlap,-m-2 to fix spacing issues,Medium,
-25,Spacing,Space between,Use space-y-* for vertical lists,space-y-4 on flex/grid column,Margin on each child,space-y-4,Each child has mb-4,Low,https://tailwindcss.com/docs/space
+25,Spacing,Workspace between,Use workspace-y-* for vertical lists,workspace-y-4 on flex/grid column,Margin on each child,workspace-y-4,Each child has mb-4,Low,https://tailwindcss.com/docs/workspace
 26,Forms,Focus states,Always show focus indicators,focus:ring-2 focus:ring-blue-500,Remove focus outline,focus:ring-2 focus:ring-offset-2,focus:outline-none (no replacement),High,
 27,Forms,Input sizing,Consistent input dimensions,h-10 px-3 for inputs,Inconsistent input heights,h-10 w-full px-3,Various heights per input,Medium,
 28,Forms,Disabled states,Clear disabled styling,disabled:opacity-50 disabled:cursor-not-allowed,No disabled indication,disabled:opacity-50,Same style as enabled,Medium,
@@ -37,7 +37,7 @@ No,Category,Guideline,Description,Do,Don't,Code Good,Code Bad,Severity,Docs URL
 36,Buttons,Icon buttons,Accessible icon-only buttons,aria-label on icon buttons,Icon button without label,<button aria-label='Close'><XIcon/></button>,<button><XIcon/></button>,High,
 37,Cards,Card structure,Consistent card styling,rounded-lg shadow-md p-6,Inconsistent card styles,rounded-2xl shadow-lg p-6,Mixed card styling,Low,
 38,Cards,Card hover states,Interactive cards should have hover feedback,hover:shadow-lg transition-shadow,No hover on clickable cards,hover:shadow-xl transition-shadow,Static cards that are clickable,Medium,
-39,Cards,Card spacing,Consistent internal card spacing,space-y-4 for card content,Inconsistent internal spacing,space-y-4 or p-6,Mixed mb-2 mb-4 mb-6,Low,
+39,Cards,Card spacing,Consistent internal card spacing,workspace-y-4 for card content,Inconsistent internal spacing,workspace-y-4 or p-6,Mixed mb-2 mb-4 mb-6,Low,
 40,Accessibility,Screen reader text,Provide context for screen readers,sr-only for hidden labels,Missing context for icons,<span class='sr-only'>Close menu</span>,No label for icon button,High,https://tailwindcss.com/docs/screen-readers
 41,Accessibility,Focus visible,Show focus only for keyboard users,focus-visible:ring-2,Focus on all interactions,focus-visible:ring-2,focus:ring-2 (shows on click too),Medium,
 42,Accessibility,Reduced motion,Respect user motion preferences,motion-reduce:animate-none,Ignore motion preferences,motion-reduce:transition-none,No reduced motion support,High,https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion

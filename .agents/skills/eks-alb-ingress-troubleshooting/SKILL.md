@@ -69,9 +69,9 @@ kubectl describe ingress <name> -n <namespace>
 
 ### Check Gateway Resources
 ```bash
-kubectl get pods,svc,ingress -n myapp-jupyterhub-hardened
-kubectl describe ingress jupyterhub-gateway -n myapp-jupyterhub-hardened
-kubectl logs -n myapp-jupyterhub-hardened -l app=jupyterhub-gateway --tail=100
+kubectl get pods,svc,ingress -n jupyterhub-hardened
+kubectl describe ingress jupyterhub-gateway -n jupyterhub-hardened
+kubectl logs -n jupyterhub-hardened -l app=jupyterhub-gateway --tail=100
 ```
 
 ### Check Public Gateway

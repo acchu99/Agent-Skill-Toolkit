@@ -34,7 +34,7 @@ The goal of this skill is to ensure that the AI's "brain" (the `.agent/` directo
 | **New Security Pattern** | `supabase-security`, `vulnerability-scanner` |
 | **UI/UX Standard** | `frontend-design`, `ui-ux-pro-max` |
 | **New Agent/Workflow** | `ARCHITECTURE.md`, `AGENTS.md`, `CONTEXT.md` |
-| **Documentation Update** | `myapp-documentation-generator` (Quote Mermaid labels, verify screenshots) |
+| **Documentation Update** | `example-app-documentation-generator` (Quote Mermaid labels, verify screenshots) |
 
 ---
 
@@ -52,7 +52,7 @@ Whenever the number of agents, skills, or workflows changes:
 
 ### 3. Cross-Project Synchronization
 If you improve a common utility (e.g., `checklist.py` or `deploy.sh`) in one repository:
-- Proactively check if other projects (`myapp-datasets`, `myapp-infra`, etc.) should receive the same update.
+- Proactively check if other projects (`example-app-datasets`, `example-app-infra`, etc.) should receive the same update.
 
 ---
 

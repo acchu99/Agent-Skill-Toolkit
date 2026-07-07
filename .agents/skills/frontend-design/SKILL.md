@@ -222,11 +222,11 @@ LLMs default to clichés. Override these defaults proactively. Each rule has a c
   * **Override:** the beige+brass+espresso palette is acceptable ONLY when the brand brief explicitly names those colors, or when the brand identity is genuinely vintage / artisan / warm-craft AND you can articulate why this specific palette fits this specific brand. Default-reaching for it because "this is a cookware brief" is banned.
 
 ### 4.3 Layout Diversification
-* **ANTI-CENTER BIAS:** Centered Hero / H1 sections are avoided when `DESIGN_VARIANCE > 4`. Force "Split Screen" (50/50), "Left-aligned content / right-aligned asset", "Asymmetric white-space", or scroll-pinned structures.
+* **ANTI-CENTER BIAS:** Centered Hero / H1 sections are avoided when `DESIGN_VARIANCE > 4`. Force "Split Screen" (50/50), "Left-aligned content / right-aligned asset", "Asymmetric white-workspace", or scroll-pinned structures.
 * **Override:** centered hero is OK for editorial / manifesto / launch-announcement briefs where the message itself is the design.
 
 ### 4.4 Materiality, Shadows, Cards
-* Use cards ONLY when elevation communicates real hierarchy. Otherwise group with `border-t`, `divide-y`, or negative space.
+* Use cards ONLY when elevation communicates real hierarchy. Otherwise group with `border-t`, `divide-y`, or negative workspace.
 * When a shadow is used, tint it to the background hue. No pure-black drop shadows on light backgrounds.
 * For `VISUAL_DENSITY > 7`: generic card containers are banned. Data metrics breathe in plain layout.
 * **SHAPE CONSISTENCY LOCK (mandatory):** Pick ONE corner-radius scale for the page and stick to it. Options: all-sharp (radius 0), all-soft (radius 12-16px), all-pill (full radius for interactive). Mixed systems are allowed only when there is a documented rule (e.g. "buttons are full-pill, cards are 16px, inputs are 8px") and that rule is followed everywhere. Round buttons in a square layout, or square cards on a pill-button page, is broken design.
@@ -250,7 +250,7 @@ LLMs default to "static successful state only." Always implement full cycles:
 
 * **Hero MUST fit in the initial viewport.** Headline max 2 lines on desktop, subtext max **20 words** AND max 3-4 lines, CTAs visible without scroll. If the copy is too long: reduce font scale OR cut copy. If you cannot describe the value-prop in 20 words of subtext, the value-prop is unclear, not the rule too tight. Never let the hero overflow and force scroll to find the CTA.
 * **Hero font-scale discipline.** Plan font size and image size *together*. If the hero asset is large and the headline is more than 6 words, do not start at `text-7xl/text-8xl`. Default sensible range: `text-4xl md:text-5xl lg:text-6xl` for most heroes; `text-6xl md:text-7xl` only when the headline is 3-5 words. A 4-line hero headline is always a font-size error, never a copy-length error.
-* **HERO TOP PADDING CAP (mandatory):** Hero top padding max `pt-24` (≈6rem) at desktop. More than that means the hero content floats halfway down the viewport and reads as a layout bug, not as intentional space. If your hero needs more breathing room, increase font scale or asset size, not top padding.
+* **HERO TOP PADDING CAP (mandatory):** Hero top padding max `pt-24` (≈6rem) at desktop. More than that means the hero content floats halfway down the viewport and reads as a layout bug, not as intentional workspace. If your hero needs more breathing room, increase font scale or asset size, not top padding.
 * **HERO STACK DISCIPLINE (max 4 text elements).** The hero is a single moment, not a feature list. Allowed text elements, max 4 in total:
   1. Eyebrow (small uppercase label) OR brand strip OR neither - pick zero or one
   2. Headline (max 2 lines, see above)
@@ -360,7 +360,7 @@ The page has ONE theme. Sections do not invert.
 * If the page is dark mode, ALL sections are dark mode. No light-mode-warm-paper section sandwiched between dark sections (or vice versa). The user must not feel they walked into a different website mid-scroll.
 * The exception: if the brief explicitly calls for a "Color Block Story" or "Theme Switch on Scroll" device AND that is a deliberate composition (one full theme switch with a strong transition, not random alternation), it is allowed once per page.
 * Default behaviour: pick light, dark, or auto (`prefers-color-scheme`) at the page level and lock it. Section-level background tints within the same theme family are fine (`bg-zinc-950` next to `bg-zinc-900`); flipping to `bg-amber-50` in the middle of a `bg-zinc-950` page is broken.
-* When using a design system with built-in theming (Radix Themes, shadcn/ui with `<Theme>`), set the theme ONCE in `layout.tsx` or the page root. Do not let individual sections override.
+* When using a design system with built-in theming (Radix Themes, shadcn/ui with `<Theme>`), set theme ONCE in `layout.tsx` or the page root. Do not let individual sections override.
 
 ---
 
@@ -552,7 +552,7 @@ Use this for: feature lists, testimonial grids, logo walls, anything that just n
 ### 6.D Core Web Vitals Targets
 * **LCP** < 2.5s. Hero image must be `next/image priority` or preloaded.
 * **INP** < 200ms. Heavy work off main thread.
-* **CLS** < 0.1. Reserve space for images, fonts, embeds.
+* **CLS** < 0.1. Reserve workspace for images, fonts, embeds.
 * Run Lighthouse before declaring a page done.
 
 ### 6.E DOM Cost
@@ -578,7 +578,7 @@ NEVER spam arbitrary `z-50` or `z-10`. Use z-index strictly for systemic layer c
 * **8-10 (Advanced Choreography):** Complex scroll-triggered reveals, parallax, scroll-driven animation (CSS `animation-timeline` or GSAP ScrollTrigger). Use Motion hooks. **NEVER use `window.addEventListener('scroll')`** - it is a hard ban, not a "prefer-not." See Section 5.D for the allowed alternatives.
 
 ### VISUAL_DENSITY (Level 1-10)
-* **1-3 (Art Gallery):** Lots of white space. Huge section gaps (`py-32` to `py-48`). Expensive, clean.
+* **1-3 (Art Gallery):** Lots of white workspace. Huge section gaps (`py-32` to `py-48`). Expensive, clean.
 * **4-7 (Daily App):** Standard web app spacing (`py-16` to `py-24`).
 * **8-10 (Cockpit):** Tight paddings. No card boxes; 1px lines separate data. Mandatory: `font-mono` for all numbers.
 
@@ -704,7 +704,7 @@ These patterns came out of real LLM-generated landing-page tests. They are the s
 * **Banned in headlines.** Use a period or a comma.
 * **Banned in eyebrows / labels / pills / button text / image captions / nav items.** Replace with line breaks, columns, or hairlines.
 * **Banned in body copy.** Restructure the sentence: two sentences with a period, OR a comma, OR parentheses, OR a colon.
-* **Banned in quote attribution.** Use a normal hyphen with spaces (` - `) or a line break + smaller-weight name.
+* **Banned in quote attribution.** Use a normal hyphen with workspaces (` - `) or a line break + smaller-weight name.
 * **Banned in en-dash form too (`–`) when used as a separator.** Date ranges (`2018-2026`) use a hyphen. Number ranges (`€40-80k`) use a hyphen.
 
 The ONLY permitted dash characters on the page are:
@@ -722,7 +722,7 @@ This rule is non-negotiable. The agent has historically ignored em-dash limits w
 This is a vocabulary, not a library. The agent should KNOW these pattern names to communicate about them, design with them in mind, and reach for them when the design read calls for them. **Implementations and code sketches live in the Block Library (Section 12), which is populated iteratively.**
 
 ### Hero Paradigms
-* **Asymmetric Split Hero** - Text on one side, asset on the other, generous white space.
+* **Asymmetric Split Hero** - Text on one side, asset on the other, generous white workspace.
 * **Editorial Manifesto Hero** - Large type, no asset, almost-poster.
 * **Video / Media Mask Hero** - Type cut out as mask over video background.
 * **Kinetic-Type Hero** - Animated typography as the primary visual.

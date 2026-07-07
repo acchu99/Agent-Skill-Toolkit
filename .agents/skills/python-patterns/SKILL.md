@@ -186,7 +186,7 @@ Medium API:
 
 Large application:
 ├── src/
-│   └── myapp/
+│   └── example-app/
 │       ├── core/
 │       ├── api/
 │       ├── services/

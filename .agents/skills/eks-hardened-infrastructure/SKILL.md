@@ -1,11 +1,11 @@
 ---
 name: eks-hardened-infrastructure
-description: Best practices for deploying, hardening, and managing isolated MyApp workloads on AWS EKS, including JupyterHub and the hardened MCP server.
+description: Best practices for deploying, hardening, and managing isolated the application workloads on AWS EKS, including JupyterHub and the hardened MCP server.
 ---
 
 # EKS Hardened Infrastructure Skill
 
-This skill provides patterns and instructions for managing secure, hardened MyApp workloads on AWS EKS using Terraform, Helm, and Kubernetes manifests.
+This skill provides patterns and instructions for managing secure, hardened the application workloads on AWS EKS using Terraform, Helm, and Kubernetes manifests.
 
 ## 🛡️ Hardening Patterns
 
@@ -25,15 +25,15 @@ This skill provides patterns and instructions for managing secure, hardened MyAp
 
 ### 2a. Hardened MCP Server Pattern
 
-For `myapp-mcp-server`, the current hardened deployment is:
+For `mcp-server`, the current hardened deployment is:
 
-- Deployment: `myapp-mcp-hardened`
-- Service: `myapp-mcp-hardened-service`
-- Dev cluster: `dev-myapp-cluster`
-- Dev namespace: `myapp-mcp-hardened`
-- Staging cluster: `staging-myapp-cluster`
-- Staging namespace: `myapp-mcp-hardened`
-- Prod cluster: `prod-myapp-cluster`
+- Deployment: `mcp-hardened`
+- Service: `mcp-hardened-service`
+- Dev cluster: `dev-example-app-cluster`
+- Dev namespace: `mcp-hardened`
+- Staging cluster: `staging-example-app-cluster`
+- Staging namespace: `mcp-hardened`
+- Prod cluster: `prod-example-app-cluster`
 - Prod namespace: `mcp-app-prod`
 - Node label: `example.com/node-purpose=mcp-hardened`
 - Taint tolerance: `example.com/dedicated=mcp-hardened:NoSchedule`
@@ -41,7 +41,7 @@ For `myapp-mcp-server`, the current hardened deployment is:
 - Staging route: `https://staging-infra.example.com/mcp-server`
 - Prod route: `https://prod-infra.example.com/mcp-server`
 
-The legacy deployment and service names are `mcp-app-deployment` and `mcp-app-service`. They should not exist after hardened cutover. If they appear, remove them after verifying `myapp-mcp-hardened` is healthy.
+The legacy deployment and service names are `mcp-app-deployment` and `mcp-app-service`. They should not exist after hardened cutover. If they appear, remove them after verifying `mcp-hardened` is healthy.
 
 Terraform manages MCP infrastructure such as the node group, IAM, monitoring, Secrets Manager metadata, and optionally the ALB controller release. Terraform must not write runtime secret values into Terraform state or overwrite the Kubernetes `mcp-env` secret.
 
@@ -53,7 +53,7 @@ Use the default Terraform workspace plus one backend config and one tfvars file 
 - Staging: `terraform init -reconfigure -backend-config=backend/staging.hcl` with `envs/staging.tfvars`
 - Prod: `terraform init -reconfigure -backend-config=backend/prod.hcl` with `envs/prod.tfvars`
 
-Shared EKS cluster names follow the MyApp environment convention: `dev-myapp-cluster`, `staging-myapp-cluster`, and `prod-myapp-cluster`. If a plan wants to recreate existing resources such as ECR repositories, node groups, or IAM roles, reconcile/import state before applying.
+Shared EKS cluster names follow the application environment convention: `dev-example-app-cluster`, `staging-example-app-cluster`, and `prod-example-app-cluster`. If a plan wants to recreate existing resources such as ECR repositories, node groups, or IAM roles, reconcile/import state before applying.
 
 ### 3. Database Security
 - Use **AWS RDS (PostgreSQL)** instead of in-cluster SQLite.
@@ -68,7 +68,7 @@ ingress:
   enabled: true
   ingressClassName: alb
   annotations:
-    alb.ingress.kubernetes.io/group.name: dev-myapp-shared-alb
+    alb.ingress.kubernetes.io/group.name: dev-example-app-shared-alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/healthcheck-path: /<baseUrl>/hub/health
@@ -132,8 +132,8 @@ Canonical AWS tags:
 
 | Key | Value |
 | --- | --- |
-| `Name` | `myapp-mcp-{environment}-eks-node` on MCP EC2 workers only |
-| `Project` | `myapp` |
+| `Name` | `mcp-{environment}-eks-node` on MCP EC2 workers only |
+| `Project` | `example-app` |
 | `Service` | `mcp` |
 | `Environment` | `dev`, `staging`, or `prod` |
 | `ManagedBy` | `Terraform` |

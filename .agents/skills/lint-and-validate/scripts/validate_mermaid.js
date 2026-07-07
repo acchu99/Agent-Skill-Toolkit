@@ -1,14 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-// Simple regex to catch the most common error: unquoted spaces in subgraph names
+// Simple regex to catch the most common error: unquoted workspaces in subgraph names
 // Valid: subgraph EKS["AWS EKS Cluster"]
 // Valid: subgraph EKS [AWS_EKS_Cluster]
-// Invalid: subgraph AWS EKS Cluster [myapp-infra]
+// Invalid: subgraph AWS EKS Cluster [example-app-infra]
 const invalidSubgraphRegex = /subgraph\s+(?!.*\[.*\])[^\n"]+\s+[^\n"]+/g;
 
-// Another common error: spaces in node IDs without quotes. 
-// However, mermaid allows `ID[Label with spaces]`. The ID itself cannot have spaces.
+// Another common error: workspaces in node IDs without quotes. 
+// However, mermaid allows `ID[Label with workspaces]`. The ID itself cannot have workspaces.
 const invalidNodeIdRegex = /^\s*([a-zA-Z0-9_]+\s+[a-zA-Z0-9_]+)\s*\[/gm;
 
 function validateMermaidBlocks(filePath) {
@@ -20,24 +20,24 @@ function validateMermaidBlocks(filePath) {
     while ((match = mermaidRegex.exec(content)) !== null) {
         const block = match[1];
         
-        // Check for invalid subgraph syntax where there are spaces but no quotes or explicit labels
+        // Check for invalid subgraph syntax where there are workspaces but no quotes or explicit labels
         const lines = block.split('\n');
         lines.forEach((line, index) => {
             const trimmed = line.trim();
             if (trimmed.startsWith('subgraph ')) {
-                // If it contains spaces but doesn't have ["..."] or [...] we flag it.
+                // If it contains workspaces but doesn't have ["..."] or [...] we flag it.
                 // It's a heuristic, but it catches the exact error we had.
                 const hasBrackets = trimmed.includes('[');
                 const hasQuotes = trimmed.includes('"');
                 if (!hasBrackets && !hasQuotes && trimmed.split(' ').length > 2) {
                     console.error(`\x1b[31m[ERROR]\x1b[0m ${filePath}: Invalid subgraph syntax on line: "${trimmed}"`);
-                    console.error(`        Use subgraph ID["Label with spaces"] instead.`);
+                    console.error(`        Use subgraph ID["Label with workspaces"] instead.`);
                     hasErrors = true;
                 }
             } else {
-                // Check for spaces in node IDs only if it's not a subgraph line
+                // Check for workspaces in node IDs only if it's not a subgraph line
                 if (invalidNodeIdRegex.test(trimmed)) {
-                    console.error(`\x1b[31m[ERROR]\x1b[0m ${filePath}: Invalid Node ID syntax (spaces in ID) on line: "${trimmed}"`);
+                    console.error(`\x1b[31m[ERROR]\x1b[0m ${filePath}: Invalid Node ID syntax (workspaces in ID) on line: "${trimmed}"`);
                     hasErrors = true;
                 }
             }

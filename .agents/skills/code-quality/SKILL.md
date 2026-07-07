@@ -1,7 +1,7 @@
-# MyApp Code Quality Skill
+# the application Code Quality Skill
 
 ## Description
-Standards for maintaining a clean, type-safe, and high-quality codebase in the MyApp project.
+Standards for maintaining a clean, type-safe, and high-quality codebase in the application project.
 
 ## Instructions
 When implementing or reviewing code:

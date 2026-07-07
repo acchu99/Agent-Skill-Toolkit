@@ -14,7 +14,7 @@ The design system operates by merging two distinct but highly compatible visual 
 
 ### 2.1 Swiss Industrial Print
 Derived from 1960s corporate identity systems and heavy machinery blueprints.
-*   **Characteristics:** High-contrast light modes (newsprint/off-white substrates). Reliance on monolithic, heavy sans-serif typography. Unforgiving structural grids outlined by visible dividing lines. Aggressive, asymmetric use of negative space punctuated by oversized, viewport-bleeding numerals or letterforms. Heavy use of primary red as an alert/accent color.
+*   **Characteristics:** High-contrast light modes (newsprint/off-white substrates). Reliance on monolithic, heavy sans-serif typography. Unforgiving structural grids outlined by visible dividing lines. Aggressive, asymmetric use of negative workspace punctuated by oversized, viewport-bleeding numerals or letterforms. Heavy use of primary red as an alert/accent color.
 
 ### 2.2 Tactical Telemetry & CRT Terminal
 Derived from classified military databases, legacy mainframes, and aerospace Heads-Up Displays (HUDs).
@@ -34,7 +34,7 @@ Typography is the primary structural and decorative infrastructure. Imagery is s
 
 ### 3.2 Micro-Typography (Data & Telemetry)
 *   **Classification:** Monospace / Technical Sans.
-*   **Optimal Web Fonts:** JetBrains Mono, IBM Plex Mono, Space Mono, VT323, Courier Prime.
+*   **Optimal Web Fonts:** JetBrains Mono, IBM Plex Mono, Workspace Mono, VT323, Courier Prime.
 *   **Implementation Parameters:**
     *   **Scale:** Fixed and small (`10px` to `14px` / `0.7rem` to `0.875rem`).
     *   **Tracking:** Generous (`0.05em` to `0.1em`) to simulate mechanical typewriter spacing or terminal matrices.
@@ -67,7 +67,7 @@ The layout must appear mathematically engineered. It rejects conventional web pa
 
 *   **The Blueprint Grid:** Strict adherence to CSS Grid architectures. Elements do not float; they are anchored precisely to grid tracks and intersections.
 *   **Visible Compartmentalization:** Extensive utilization of solid borders (`1px` or `2px solid`) to delineate distinct zones of information. Horizontal rules (`<hr>`) frequently span the entire container width to segregate operational units.
-*   **Bimodal Density:** Layouts oscillate between extreme data density (tightly packed monospace metadata clustered together) and vast expanses of calculated negative space framing macro-typography.
+*   **Bimodal Density:** Layouts oscillate between extreme data density (tightly packed monospace metadata clustered together) and vast expanses of calculated negative workspace framing macro-typography.
 *   **Geometry:** Absolute rejection of `border-radius`. All corners must be exactly 90 degrees to enforce mechanical rigidity.
 
 ## 6. UI Components and Symbology

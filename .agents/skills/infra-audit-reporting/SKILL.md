@@ -1,6 +1,6 @@
 ---
 name: infra-audit-reporting
-description: MyApp infrastructure audit reporting with CloudMapper, Prowler, FinOps, S3 history, Netlify mirrors, and Grafana dashboard publishing.
+description: the application infrastructure audit reporting with CloudMapper, Prowler, FinOps, S3 history, Netlify mirrors, and Grafana dashboard publishing.
 allowed-tools: Read, Edit, Write, Bash, Grep, Glob
 ---
 
@@ -8,7 +8,7 @@ allowed-tools: Read, Edit, Write, Bash, Grep, Glob
 
 ## Goal
 
-Produce repeatable, environment-scoped infrastructure audit reports for MyApp and publish them to the correct operational surfaces.
+Produce repeatable, environment-scoped infrastructure audit reports for the application and publish them to the correct operational surfaces.
 
 ## Rules
 

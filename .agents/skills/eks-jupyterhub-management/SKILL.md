@@ -11,9 +11,9 @@ This skill provides patterns and instructions for managing a secure, hardened Ju
 
 ### 1. Namespace & Resource Isolation
 - Always deploy JupyterHub into the Terraform-owned hardened namespace:
-    - `dev`: `myapp-jupyterhub-hardened`
-    - `staging`: `myapp-jupyterhub-hardened`
-    - `prod`: `myapp-jupyterhub-hardened`
+    - `dev`: `jupyterhub-hardened`
+    - `staging`: `jupyterhub-hardened`
+    - `prod`: `jupyterhub-hardened`
 - `terraform/namespace.tf` owns namespace creation. Helm must use `create_namespace = false`.
 - Use dedicated node groups for different components:
     - `hardened-core`: For Hub, Proxy, and Scheduler.
@@ -48,7 +48,7 @@ ingress:
   enabled: true
   ingressClassName: alb
   annotations:
-    alb.ingress.kubernetes.io/group.name: dev-myapp-shared-alb
+    alb.ingress.kubernetes.io/group.name: dev-example-app-shared-alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/healthcheck-path: /<baseUrl>/hub/health
@@ -104,14 +104,14 @@ hub:
 - **Hub cannot connect to RDS after deploy**:
     1. Confirm RDS is `available`, in the same VPC as the target EKS cluster, and attached to an RDS SG that allows PostgreSQL from the node SG used by Hub pods.
     2. From a debug pod scheduled with the same core node selector and tolerations as Hub, first resolve `kubernetes.default.svc.cluster.local`, then resolve the RDS endpoint, then test TCP `5432`.
-    3. If DNS fails for `kubernetes.default.svc.cluster.local`, stop debugging JupyterHub/RDS credentials. The likely owner is shared cluster DNS reachability in `../myapp-infra/terraform/security_groups.tf`, especially CoreDNS ingress from the EKS primary cluster security group to the shared node security group on TCP/UDP `53`.
+    3. If DNS fails for `kubernetes.default.svc.cluster.local`, stop debugging JupyterHub/RDS credentials. The likely owner is shared cluster DNS reachability in `../example-app-infra/terraform/security_groups.tf`, especially CoreDNS ingress from the EKS primary cluster security group to the shared node security group on TCP/UDP `53`.
     4. If DNS works but TCP `5432` fails, inspect the JupyterHub RDS security group in this repo.
     5. If DNS and TCP work, then inspect `hub.db.url`, Terraform `random_password.db_pass`, and JupyterHub schema state.
 
 Use a same-scheduling debug pod rather than an untainted default pod:
 
 ```bash
-kubectl run hub-rds-check -n myapp-jupyterhub-hardened \
+kubectl run hub-rds-check -n jupyterhub-hardened \
   --restart=Never \
   --image=quay.io/jupyterhub/k8s-hub:4.3.2 \
   --overrides='{ "spec": { "nodeSelector": { "hub.jupyter.org/node-purpose": "core" }, "tolerations": [ { "key": "hardened.example.com/dedicated", "operator": "Equal", "value": "core", "effect": "NoSchedule" }, { "key": "hub.jupyter.org/dedicated", "operator": "Equal", "value": "core", "effect": "NoSchedule" }, { "key": "hub.jupyter.org/node-purpose", "operator": "Equal", "value": "core", "effect": "NoSchedule" } ] } }' \

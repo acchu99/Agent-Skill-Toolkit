@@ -9,7 +9,7 @@ No,Category,Guideline,Description,Do,Don't,Code Good,Code Bad,Severity,Docs URL
 8,State,Prefer Riverpod or Provider,Recommended state solutions,Riverpod for new projects,InheritedWidget manually,ref.watch(myProvider),Custom InheritedWidget,Medium,https://riverpod.dev/
 9,State,Dispose resources,Clean up controllers and subscriptions,dispose() for cleanup,Memory leaks from subscriptions,@override void dispose() { controller.dispose(); },No dispose implementation,High,
 10,Layout,Use Column and Row,Basic layout widgets,Column Row for linear layouts,Stack for simple layouts,"Column(children: [Text(), Button()])",Stack for vertical list,Medium,https://api.flutter.dev/flutter/widgets/Column-class.html
-11,Layout,Use Expanded and Flexible,Control flex behavior,Expanded to fill space,Fixed sizes in flex containers,Expanded(child: Container()),Container(width: 200) in Row,Medium,
+11,Layout,Use Expanded and Flexible,Control flex behavior,Expanded to fill workspace,Fixed sizes in flex containers,Expanded(child: Container()),Container(width: 200) in Row,Medium,
 12,Layout,Use SizedBox for spacing,Consistent spacing,SizedBox for gaps,Container for spacing only,SizedBox(height: 16),Container(height: 16),Low,
 13,Layout,Use LayoutBuilder for responsive,Respond to constraints,LayoutBuilder for adaptive layouts,Fixed sizes for responsive,LayoutBuilder(builder: (context constraints) {}),Container(width: 375),Medium,https://api.flutter.dev/flutter/widgets/LayoutBuilder-class.html
 14,Layout,Avoid deep nesting,Keep widget tree shallow,Extract deeply nested widgets,10+ levels of nesting,Extract widget to method or class,Column(Row(Column(Row(...)))),Medium,

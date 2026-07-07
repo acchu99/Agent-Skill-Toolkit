@@ -11,7 +11,7 @@
 
 ```
 MATERIAL AS METAPHOR:
-├── Surfaces exist in 3D space
+├── Surfaces exist in 3D workspace
 ├── Light and shadow define hierarchy
 ├── Motion provides continuity
 └── Bold, graphic, intentional design

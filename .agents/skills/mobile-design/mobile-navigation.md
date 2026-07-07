@@ -251,15 +251,15 @@ Building later is HARD:
 Scheme://host/path?params
 
 Examples:
-├── myapp://product/123
-├── https://myapp.com/product/123 (Universal/App Link)
-├── myapp://checkout?promo=SAVE20
-├── myapp://tab/profile/settings
+├── example-app://product/123
+├── https://example-app.com/product/123 (Universal/App Link)
+├── example-app://checkout?promo=SAVE20
+├── example-app://tab/profile/settings
 
 Hierarchy should match navigation:
-├── myapp://home
-├── myapp://home/product/123
-├── myapp://home/product/123/reviews
+├── example-app://home
+├── example-app://home/product/123
+├── example-app://home/product/123/reviews
 └── URL path = navigation path
 ```
 
@@ -267,7 +267,7 @@ Hierarchy should match navigation:
 
 ```
 1. FULL STACK CONSTRUCTION
-   Deep link to myapp://product/123 should:
+   Deep link to example-app://product/123 should:
    ├── Put Home at root of stack
    ├── Push Product screen on top
    └── Back button returns to Home

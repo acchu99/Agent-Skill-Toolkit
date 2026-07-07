@@ -1,22 +1,22 @@
 ---
 name: env-var-patterns
-description: Guidelines for MyApp's hierarchical environment variables (V2).
+description: Guidelines for the application's hierarchical environment variables (V2).
 ---
 
 # Environment Variables V2 Patterns
 
-This skill defines the technical standards for managing environment variables across User, Org, and Space scopes in MyApp.
+This skill defines the technical standards for managing environment variables across User, Org, and Workspace scopes in the application.
 
 ## 1. Scoping & Hierarchy
 
 | Scope | Key Type | Propagation | Isolation |
 |-------|----------|-------------|-----------|
-| **Space** | `{{var}}` | Hierarchical (merged down via CTE) | Shared within branch |
+| **Workspace** | `{{var}}` | Hierarchical (merged down via CTE) | Shared within branch |
 | **User** | `{{user.var}}` | None | Strict User Isolation |
 | **Org** | `{{org.var}}` | None | Strict Org Isolation |
 
-### Recursive Space Merge
-Space variables are merged using the `parent_vars || child_vars` logic in the `space_effective_privs` materialized view (or CTE). Child values override parent values.
+### Recursive Workspace Merge
+Workspace variables are merged using the `parent_vars || child_vars` logic in the `effective_workspace_privs` materialized view (or CTE). Child values override parent values.
 
 ## 2. Safe Substitution Protocol
 
@@ -27,17 +27,17 @@ Substitutions MUST happen at the earliest possible moment on the backend via the
 - **Output:** Fully materialized content.
 
 > [!IMPORTANT]
-> Downstream consumers (MyApp Client, MCP Tools, RPC Server) should NEVER perform substitution themselves. They receive pre-substituted content.
+> Downstream consumers (Application client, MCP Tools, RPC Server) should NEVER perform substitution themselves. They receive pre-substituted content.
 
 ## 3. Trusted Process Push
 
 For variables that are not just for content substitution but represent session context (e.g., API keys, user preferences):
 
-- **MyApp Client:** Pushed as `OS Environment Variables` during kernel startup.
+- **Application client:** Pushed as `OS Environment Variables` during kernel startup.
 - **MCP Tools:** Passed in the `request context` for every tool call.
 - **RPC Server:** Injected into operation metadata.
 
 ## 4. Security Boundaries
 
 - **No Raw Leakage:** The AI agent should never see the raw mapping of variables. Use `execute_skill` or data loaders to provide the *result* of an operation, not the credentials used to perform it.
-- **Namespace Collision:** Always use the `user.` or `org.` prefix for respective scopes to avoid accidental overrides by Space-level variables.
+- **Namespace Collision:** Always use the `user.` or `org.` prefix for respective scopes to avoid accidental overrides by Workspace-level variables.

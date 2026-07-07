@@ -58,7 +58,7 @@ const result = await createNewNotebook(
 // 3. Close Modal Fast
 if (result) {
     close();
-    // 4. Trigger Magic Query
+    // 4. Trigger AI Query
     await magicQuery(hiddenInstruction, attachments, true, groupUuid);
 }
 ```

@@ -58,7 +58,7 @@ Roboto Family:
 ├── Roboto Flex: Variable font
 ├── Roboto Serif: Serif option
 ├── Roboto Mono: Monospace
-├── Roboto Condensed: Narrow spaces
+├── Roboto Condensed: Narrow workspaces
 
 Features:
 ├── Optimized for screens

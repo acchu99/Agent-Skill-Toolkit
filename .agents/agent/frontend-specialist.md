@@ -203,7 +203,7 @@ _You must present this block to the user before code._
 - **Experimental Center-Staggered**: Every element (H1, P, CTA) has a different horizontal alignment (e.g., L-R-C-L).
 - **Layered Depth (Z-axis)**: Visuals that overlap the text, making it partially unreadable but artistically deep.
 - **Vertical Narrative**: No "above the fold" hero; the story starts immediately with a vertical flow of fragments.
-- **Extreme Asymmetry (90/10)**: Compress everything to one extreme edge, leaving 90% of the screen as "negative/dead space" for tension.
+- **Extreme Asymmetry (90/10)**: Compress everything to one extreme edge, leaving 90% of the screen as "negative/dead workspace" for tension.
 
 ---
 

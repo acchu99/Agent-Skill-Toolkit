@@ -6,14 +6,14 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 # Storage and Download Patterns
 
-This skill documents critical patterns and constraints for handling S3 bucket access, Supabase Storage listings, Jupyter notebook path resolution, and file download authentication in the MyApp ecosystem.
+This skill documents critical patterns and constraints for handling S3 bucket access, Supabase Storage listings, Jupyter notebook path resolution, and file download authentication in the application ecosystem.
 
 ---
 
 ## 1. AWS S3 Client and Presigned URLs
 
 ### Signature Version and Region Defaults
-When initializing AWS S3 clients for generating presigned URLs (specifically for the `myapp-datasets` bucket located in `us-east-2`), you must explicitly configure:
+When initializing AWS S3 clients for generating presigned URLs (specifically for the `example-app-datasets` bucket located in `us-east-2`), you must explicitly configure:
 - **Signature Version**: Must be set to `v4` (`signatureVersion: "v4"`). AWS regions like `us-east-2` require Signature Version 4 (`AWS4-HMAC-SHA256`) to validate presigned URLs.
 - **Region Fallback**: If `process.env.AWS_REGION` is undefined, default to `"us-east-2"` (instead of `"us-east-1"`).
 
@@ -67,7 +67,7 @@ Always match database records with Supabase Storage files by **ID** (`storage.id
 
 ### Path Resolution Helper
 Before downloading any Jupyter Notebook, resolve its full storage path dynamically using `getFullFilePath` instead of assuming it resides under `userId/`.
-- `getFullFilePath` queries the `/api/spaces/filePath` endpoint to retrieve the correct folder prefix (resolving `threads/${fileId}` vs `${userId}/${fileId}`).
+- `getFullFilePath` queries the `/api/workspaces/filePath` endpoint to retrieve the correct folder prefix (resolving `threads/${fileId}` vs `${userId}/${fileId}`).
 
 ```typescript
 const fileId = getFileId(file);
@@ -102,10 +102,10 @@ When a user requests a file download, temporary files are only created on the Ju
 
 ## 4. Download Authorization Checks
 
-To verify if a user has access to download a dataset, avoid relying on restrictive direct workspace ownership checks (`spaces.creator_id === userId`). Instead, check:
+To verify if a user has access to download a dataset, avoid relying on restrictive direct workspace ownership checks (`workspaces.creator_id === userId`). Instead, check:
 1. If the caller is a `super_admin`.
 2. If the caller is the creator of the dataset (`created_by === userId`).
-3. If the user has inherited access to the dataset through `space_effective_privs` (matching the permissions check used to render files in the UI).
+3. If the user has inherited access to the dataset through `effective_workspace_privs` (matching the permissions check used to render files in the UI).
 
 ```typescript
 // 1. Is creator of the dataset
@@ -113,9 +113,9 @@ if (dataset.created_by === userId) {
 	hasAccess = true;
 }
 
-// 2. Has privilege via space effective privileges
+// 2. Has privilege via workspace effective privileges
 const { data: privRows } = await supabaseAdmin
-	.from("space_effective_privs")
+	.from("effective_workspace_privs")
 	.select("effective_privs")
 	.eq("subject_type", "user")
 	.eq("subject_id", userId)

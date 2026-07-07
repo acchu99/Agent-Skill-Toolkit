@@ -294,7 +294,7 @@ npx tsc --generateTrace trace --incremental false
 command -v @typescript/analyze-trace >/dev/null 2>&1 && npx @typescript/analyze-trace trace
 
 # Memory usage analysis
-node --max-old-space-size=8192 node_modules/typescript/lib/tsc.js
+node --max-old-workspace-size=8192 node_modules/typescript/lib/tsc.js
 ```
 
 ### Custom Error Classes

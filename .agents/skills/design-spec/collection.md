@@ -75,13 +75,13 @@
 
 ### Media & Consumer Tech
 
-- [**Apple**](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/apple/DESIGN.md) - Consumer electronics. Premium white space, SF Pro, cinematic imagery
+- [**Apple**](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/apple/DESIGN.md) - Consumer electronics. Premium white workspace, SF Pro, cinematic imagery
 - [**HP**](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/hp/DESIGN.md) - PC and printer maker. Pure white canvas, HP Electric Blue signal CTA, geometric Forma DJR Micro, blue chevron decorations
 - [**IBM**](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/ibm/DESIGN.md) - Enterprise technology. Carbon design system, structured blue palette
 - [**NVIDIA**](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/nvidia/DESIGN.md) - GPU computing. Green-black energy, technical power aesthetic
 - [**Pinterest**](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/pinterest/DESIGN.md) - Visual discovery platform. Red accent, masonry grid, image-first
 - [**PlayStation**](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/playstation/DESIGN.md) - Gaming console retail. Three-surface channel layout, cyan hover-scale interaction
-- [**SpaceX**](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/spacex/DESIGN.md) - Space technology. Stark black and white, full-bleed imagery, futuristic
+- [**SpaceX**](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/spacex/DESIGN.md) - Workspace technology. Stark black and white, full-bleed imagery, futuristic
 - [**Spotify**](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/spotify/DESIGN.md) - Music streaming. Vibrant green on dark, bold type, album-art-driven
 - [**The Verge**](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/theverge/DESIGN.md) - Tech editorial media. Acid-mint and ultraviolet accents, Manuka display type
 - [**Uber**](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/uber/DESIGN.md) - Mobility platform. Bold black and white, tight type, urban energy

@@ -46,7 +46,7 @@ Run internal and external checks side by side:
 
 If the external request never appears in app logs, investigate ALB, ingress, target groups, security groups, and controller reconciliation before changing app code.
 
-For `myapp-mcp-server`, a public response like `HTTP/2 404` with `server: awselb/2.0` on `https://<env>-infra.example.com/mcp-server/health` means the request hit the ALB default rule. It is not proof of an unhealthy pod. Confirm whether the shared ALB has a listener rule for the selected environment host and path `/mcp-server` forwarding to the MCP target group.
+For `mcp-server`, a public response like `HTTP/2 404` with `server: awselb/2.0` on `https://<env>-infra.example.com/mcp-server/health` means the request hit the ALB default rule. It is not proof of an unhealthy pod. Confirm whether the shared ALB has a listener rule for the selected environment host and path `/mcp-server` forwarding to the MCP target group.
 
 ---
 
@@ -107,13 +107,13 @@ kubectl get endpointslices -n "$NAMESPACE"
 kubectl logs -n kube-system deployment/aws-load-balancer-controller --tail=100
 ```
 
-For `myapp-mcp-server`, recover the intended hardened app route by applying:
+For `mcp-server`, recover the intended hardened app route by applying:
 
 ```bash
 export IMAGE_URI="<account>.dkr.ecr.us-east-2.amazonaws.com/dev-mcp:<tag>"
 export NAMESPACE="mcp-app-namespace"
 export INGRESS_HOST="dev-infra.example.com"
-export INGRESS_ALB_GROUP_NAME="dev-myapp-shared-alb"
+export INGRESS_ALB_GROUP_NAME="dev-example-app-shared-alb"
 export INGRESS_CERTIFICATE_ARN="<acm-certificate-arn>"
 export INGRESS_PUBLIC_SUBNETS="subnet-..., subnet-..."
 mkdir -p rendered
@@ -176,7 +176,7 @@ kubectl get endpointslices -n "$NAMESPACE"
 aws elbv2 describe-target-health --region us-east-2 --target-group-arn <mcp-target-group-arn>
 ```
 
-Expected `myapp-mcp-server` recovery state:
+Expected `mcp-server` recovery state:
 
 - `curl` returns `HTTP/2 200` with `server: uvicorn`.
 - `deployment.apps/mcp-app-hardened` is `2/2`.

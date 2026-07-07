@@ -115,7 +115,7 @@ Check for these problems and fix them:
 - **Inline styles mixed with CSS classes.** Move all styling to the project's styling system.
 - **Hardcoded pixel widths.** Use relative units (`%`, `rem`, `em`, `max-width`) for flexible layouts.
 - **Missing alt text on images.** Describe image content for screen readers. Never leave `alt=""` or `alt="image"` on meaningful images.
-- **Arbitrary z-index values like `9999`.** Establish a clean z-index scale in the theme/variables.
+- **Arbitrary z-index values like `9999`.** Establish a clean z-index scale in theme/variables.
 - **Commented-out dead code.** Remove all debug artifacts before shipping.
 - **Import hallucinations.** Check that every import actually exists in `package.json` or the project dependencies.
 - **Missing meta tags.** Add proper `<title>`, `description`, `og:image`, and social sharing meta tags.
@@ -140,7 +140,7 @@ When upgrading a project, pull from these high-impact techniques to replace gene
 
 ### Layout Upgrades
 - **Broken grid / asymmetry.** Elements that deliberately ignore column structure — overlapping, bleeding off-screen, or offset with calculated randomness.
-- **Whitespace maximization.** Aggressive use of negative space to force focus on a single element.
+- **Whitespace maximization.** Aggressive use of negative workspace to force focus on a single element.
 - **Parallax card stacks.** Sections that stick and physically stack over each other during scroll.
 - **Split-screen scroll.** Two halves of the screen sliding in opposite directions.
 

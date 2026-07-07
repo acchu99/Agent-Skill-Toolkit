@@ -12,4 +12,4 @@ When building or refactoring pages:
 5.  **Route Groups**: Use `(group)` folders to organize routes without affecting the URL path.
 
 ## Core Files
-- `src/pages/` (Note: MyApp is currently hybrid/Pages router, transition to App Router should follow these rules).
+- `src/pages/` (Note: the application is currently hybrid/Pages router, transition to App Router should follow these rules).

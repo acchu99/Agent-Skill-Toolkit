@@ -202,7 +202,7 @@ app/
 
 ## 11. Large File Handling (S3 Pattern)
 
-For MyApp-scale datasets, use the presigned URL pattern:
+For the application-scale datasets, use the presigned URL pattern:
 1. **API**: Create `get-url` action to return a presigned `PUT` URL.
 2. **Client**: Use `XMLHttpRequest` (XHR) for uploads to enable real-time progress tracking.
 3. **API**: Create `finalize` action to record the S3 key in Supabase and trigger enrichment.
